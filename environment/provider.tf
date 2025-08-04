@@ -6,11 +6,6 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "Devops_G2_rg"
-    storage_account_name = "b17g2sa"
-    container_name       = "testcontainer"
-    key                  = "terraform.tfstate"
-
   }
 }
 
