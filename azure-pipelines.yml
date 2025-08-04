@@ -1,0 +1,37 @@
+trigger: none
+
+pool: mera_agent_pool
+
+steps: 
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\environment'
+    backendServiceArm: 'App-wif'
+    backendAzureRmStorageAccountName: 'b17g2sa'
+    backendAzureRmContainerName: 'testcontainer'
+    backendAzureRmKey: 'test.tfstate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\environment'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\environment'
+    environmentServiceNameAzureRM: 'App-wif'
+
+
+
+
+
+    
