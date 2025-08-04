@@ -12,7 +12,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)\environment'
-    backendServiceArm: 'App-wif'
+    backendServiceArm: 'App-Wif'
     backendAzureRmStorageAccountName: 'b17g2sa'
     backendAzureRmContainerName: 'testcontainer'
     backendAzureRmKey: 'test.tfstate'
@@ -28,7 +28,7 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)\environment'
-    environmentServiceNameAzureRM: 'App-wif'
+    environmentServiceNameAzureRM: 'App-Wif'
 
 
 
